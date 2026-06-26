@@ -1,0 +1,525 @@
+/*
+const tasks = [
+    "Lära oss Ts",
+    "Träna",
+    "Handla",
+    "Tvätta",
+    "Plugga",
+    
+];
+console.log(`Antal uppgifter: ${tasks.length} st`);
+
+ for (let i = 0; i < tasks.length; i++) {
+    console.log(tasks[i]);
+    if (tasks[i] === "Träna") {
+    console.log(" Dags att träna!");
+} else if (tasks[i] === "Plugga") {
+    console.log(" Dags att studera!");
+}
+if(tasks[i]==="Tvätta"){
+    console.log("nu dags att tvätta");
+}
+else if (tasks[i] === "Handla") {
+    console.log(" Dags att handla!");
+}
+
+
+}
+
+
+*/
+/*
+
+type Task= {
+  name: string;
+  completed: boolean;
+  priority:number;
+
+};
+/*
+const task:Task{
+  namne: "Lära mig TS",
+  completed: false,
+  priority: 1,
+}*/
+/*
+
+const tasks: Task[] =[
+  {
+ name: "Söka Lia",
+  completed: true,
+  priority:1
+  },
+
+  {
+ name: "Träna",
+  completed: false,
+  priority:2
+  },
+  {
+ name: "Lära sig TS",
+  completed: false,
+  priority:4
+  },
+  {
+ name: "Handla",
+  completed: false,
+  priority:3
+  },
+
+  {
+ name: "Tvätta",
+  completed: true,
+  priority:2
+  }
+   
+
+];
+console.log(tasks);
+for(const task of tasks){
+  console.log(task.name, task.completed);
+}
+
+console.log("-----------------------------------------");
+
+function showHeader (): void{
+  console.log("TASK TRACKER");
+}
+
+ showHeader();// skriv ut Task Tracker som finns i html header
+
+ console.log("-----------------------------------------");
+
+ // skapa nytt Task-objekt
+  // lägg till i tasks
+
+function addTask(task: Task): void {
+  tasks.push(task);
+}
+
+addTask({
+  name: "Plugga",
+  completed: false,
+  priority: 3
+});
+
+*/
+// }
+/*function addTask (taskName: string, priority=1): void{
+tasks.push({
+  
+name:taskName,
+ completed: false,
+ priority:priority
+ 
+}
+)};
+console.log(tasks);
+addTask("Plugga", 3);
+console.log(tasks);
+*/
+/*
+console.log("-----------------------------------------");
+
+// Skriv ut alla tasks i en lista
+
+function showTask(task:Task |undefined){
+  console.log(task?.name);
+  
+}
+showTask(tasks[0]);
+
+ // for (const task of tasks){
+ //   console.log(task.name);
+  //}
+//}
+//showTasks();
+
+console.log("-----------------------------------------");
+
+function showTasks(task:Task){
+  console.log(task.name);
+}
+showTasks(tasks[5] !);
+
+
+
+
+console.log("-----------------------------------------");
+
+/*const showTasks = tasks.map (task=> task.name);
+console.log(showTasks);
+*/
+/*
+
+// lista med avklarade tasks
+console.log(`${"-".repeat(10)} Här är uppgifter som är klara ${"-".repeat(10)}`);
+
+function showCompletedTasks(): void{
+  for ( const task of tasks){
+    if(task.completed){
+    console.log(task.name);
+  }
+}
+}
+showCompletedTasks();
+
+
+
+
+
+ // Visa en lista med ej avklarade tasks
+ console.log(`${"-".repeat(10)} Här är uppgifter som inte klara ${"-".repeat(10)}`);
+ 
+ console.log("-----------------------------------------");
+
+function showPendingTasks(): void{
+  for ( const task of tasks){
+    if(!task.completed){
+    console.log(task.name);
+  }
+}
+}
+showPendingTasks();
+
+console.log("-----------------------------------------");
+
+ // Sätt en task som klar
+ function completeTask(taskName: string): void{
+  for(const task of tasks){
+    if(task.name==taskName){
+      task.completed= true;
+      
+    }
+  }
+
+ }
+ completeTask("Handla");
+console.log(tasks);
+console.log("-----------------------------------------");
+
+// Visa statistik på antal tasks, hur många avklarade, hur många ej avklarade tasks.
+function showStatistics(): void{
+  let completedCount=0;
+  let pendingCount=0;
+  for(const task of tasks){
+    if(task.completed== true){
+     completedCount++;
+    }
+     else {
+      pendingCount++;
+
+     }
+  }
+
+
+console.log("-----------------------------------------");
+
+
+
+ console.log("Statistik");
+ console.log(`Total antal uppgifter: ${tasks.length}`);
+  console.log(`Antal avklarade uppgifter: ${completedCount}`);
+   console.log(`Antal ej avklarade uppgifter :${pendingCount} `);
+}
+
+     showStatistics();
+
+    */
+// skapa 5 tasks i en array
+var Status;
+(function (Status) {
+    Status["Pending"] = "pending";
+    Status["Completed"] = "completed";
+})(Status || (Status = {}));
+var Priority;
+(function (Priority) {
+    Priority["Low"] = "low";
+    Priority["Medium"] = "medium";
+    Priority["High"] = "high";
+})(Priority || (Priority = {}));
+;
+const tasks = [];
+let nextId = 1;
+/*const tasks: Task[] = [
+  {
+    id: 1,
+    name: "Träna",
+    status: Status.Pending,
+    priority: Priority.Medium,
+    description: "Gå på Core-passet på gymmet"
+  },
+
+  {
+    id: 2,
+    name: "Plugga TypeScript",
+    status: Status.Pending,
+    priority: Priority.High,
+    description: "Lär mig union types och interfaces",
+    notes: "Gör minst 3 övningar"
+  },
+
+  {
+    id: 3,
+    name: "Handla mat",
+    status: Status.Completed,
+    priority: Priority.Low
+  },
+
+  {
+    id: 4,
+    name: "Söka LIA",
+    status: Status.Pending,
+    priority: Priority.High,
+    description: "Skicka ansökningar till minst 3 företag"
+  },
+
+  {
+    id: 5,
+    name: "Tvätta",
+    status: Status.Completed,
+    priority: Priority.Medium
+  },
+]
+// skriva ut alla 5 tasks i arrayen
+  console.log(tasks);
+
+  tasks.forEach(task => {
+  console.log( `Namn: ${task.name}, Status: ${task.status}, Prioritet: ${task.priority}, Notes: ${task.notes}`
+  );
+}); */
+//let nextId: number = tasks.length + 1;
+/*
+console.log("======================================================================");
+
+//1. lägga till en ny task
+function addExTask(task: Task): void{
+  tasks.push(task);
+}
+
+
+
+   addExTask({
+    id: 6,
+    name: "Läsa en bok",
+    status: Status.Pending,
+    priority: Priority.Low,
+    notes: "Läs 20 sidor innan läggdags"
+  
+
+})
+    
+   
+// 2.skriva ut hela arrayen efter add
+//  task.
+   console.log(tasks);
+
+   // function showTasks
+   function showTasks(): void{
+    tasks.forEach (task=> {
+      console.log(`Namn : ${task.name}, Status: ${task.status}, Prioritet: ${task.priority}, Notes: ${task.notes ?? "Inga anteckningar"}`);
+
+    });
+   }
+    
+   
+   showTasks();
+  
+
+
+   console.log("=============vvvvvvvvvvvvvvvvvvvvvvvv======================");
+   
+  // visa bara pending tasks
+console.log("Alla tasks som ej klara:");
+  function showPendingTasks(tasks: Task[]) :void {
+   tasks.forEach(task =>{
+    if (task.status === Status.Pending){
+    
+    console.log(task.name);
+    }
+
+  });
+}
+showPendingTasks(tasks);
+
+  console.log("===============================================bbbbbbb=======================");
+  console.log("Alla tasks som är klara:")
+
+//visa bara completed tasks
+  function showCompletedTasks(tasks: Task[]):void{
+  tasks.forEach(task=>{
+    if (task.status===Status.Completed){
+      console.log(task.name);
+    }
+  }
+   );
+}
+showCompletedTasks(tasks);
+
+
+console.log("======================================================================");
+//visa tasks med viss prioritet
+console.log("Här är alla tasks med ett viss prioritet, beror på vilken man anropar:");
+
+function showTasksByPriority( priority: Priority):void{
+  tasks.forEach (task=> {
+    if (task.priority=== priority){
+      console.log(task.name);
+
+    }
+});
+
+  }
+
+showTasksByPriority(Priority.High);
+
+
+console.log("======================================================================");
+
+
+
+
+
+
+//Skapa en funktion som kan:
+
+//markera task som "completed"
+//eller toggla mellan pending/completed
+console.log("=============================sssss=========================================");
+
+console.log(" En function för att kuna ändra statusen från oklar till komplett");
+
+
+
+function changeTask(taskName:string): void{           // Ändrar status på en task till completed
+  tasks.forEach(task=> {                             // Går igenom alla tasks i arrayen
+    if (task.name===taskName){                      // Kontrollerar om taskens namn matchar namnet som skickades in
+      task.status=(Status.Completed);                   // Ändrar status från pending till completed
+      console.log(task.name, task.status);          // Skriver ut namnet på tasken som ändrades
+    }
+  });
+}
+
+changeTask("Söka LIA");
+showTasks();                       // Anropar funktionen och skickar in namnet på tasken som ska uppdateras
+
+console.log("---------------------------------------------------------");
+console.log("toggla för att växla status");
+
+
+const taskWithToggle : TaskWithToggle= {
+  id: 7,
+  name:"Planera semester",
+  status:Status.Pending,
+  priority: Priority.Medium,
+
+
+
+  
+toggle(){
+  if (this.status === Status.Pending){
+   this.status = Status.Completed;
+   }
+  
+
+else{
+  this.status = Status.Pending;
+}
+}
+};
+
+console.log(taskWithToggle.status);
+taskWithToggle.toggle();
+console.log(taskWithToggle.status);
+
+
+console.log("------------------------------------------")
+
+*/
+// Hämtar elementet där appen ska visas
+// console.log(document);
+// Hämtar HTML-element från sidan och sparar dem i variabler.
+// Sedan kan vi använda dem i TypeScript, till exempel läsa vad
+// användaren skriver i inputfältet, vilken prioritet som valts,
+// reagera på klick på knappen och visa tasks i appen.
+const taskInput = document.querySelector("#task-input");
+const priorityInput = document.querySelector("#priority-input");
+const addButton = document.querySelector("#add-button");
+const app = document.querySelector("#app");
+function addTask(name, priority) {
+    const newTask = {
+        id: nextId,
+        name: name,
+        status: Status.Pending,
+        priority: priority
+    };
+    tasks.push(newTask);
+    nextId++;
+    renderTasks();
+}
+function toggleTask(taskId) {
+    for (const task of tasks) {
+        if (task.id === taskId) {
+            task.status =
+                task.status === Status.Pending
+                    ? Status.Completed
+                    : Status.Pending;
+        }
+    }
+    renderTasks();
+}
+function deleteTask(taskId) {
+    const index = tasks.findIndex(task => task.id === taskId);
+    if (index !== -1) {
+        tasks.splice(index, 1);
+    }
+    renderTasks();
+}
+// skapa alla task-kort
+function renderTasks() {
+    app.innerHTML = ""; //den tömmer <div id="app">.
+    //Den loopar igenom alla tasks i arrayen.
+    for (const task of tasks) {
+        const card = document.createElement("div");
+        card.classList.add("task");
+        if (task.priority === Priority.High) {
+            card.classList.add("high-priority");
+        }
+        const title = document.createElement("h3");
+        title.textContent = task.name;
+        const status = document.createElement("p");
+        status.textContent = `Status: ${task.status}`;
+        const priority = document.createElement("p");
+        priority.textContent = `Prioritet: ${task.priority}`;
+        const description = document.createElement("p");
+        description.textContent = `Beskrivning: ${task.description ?? "Ingen beskrivning"}`;
+        const notes = document.createElement("p");
+        notes.textContent = `Anteckningar: ${task.notes ?? "Inga anteckningar"}`;
+        const completeButton = document.createElement("button");
+        completeButton.textContent =
+            task.status === Status.Pending ? "Complete" : "Undo";
+        completeButton.addEventListener("click", () => {
+            toggleTask(task.id);
+        });
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener("click", () => {
+            deleteTask(task.id);
+        });
+        card.append(title, status, priority, description, notes, completeButton, deleteButton);
+        app.append(card);
+    }
+}
+addButton.addEventListener("click", () => {
+    const taskName = taskInput.value.trim();
+    const priority = priorityInput.value;
+    if (taskName === "") {
+        console.log("Task name is required.");
+        return;
+    }
+    addTask(taskName, priority);
+    taskInput.value = "";
+});
+renderTasks();
+export {};
+//# sourceMappingURL=main.js.map
