@@ -1,24 +1,96 @@
 body {
   font-family: Arial, sans-serif;
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: #f5f5f5;
+  max-width: 850px;
+  margin: 30px auto;
+  background-color: #f4f6fb;
+  color: #111827;
 }
 
-.task{
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 12px;
+h1 {
+  font-size: 42px;
+  margin-bottom: 30px;
+}
+
+input,
+select {
+  padding: 14px;
+  border: 1px solid #cfd4e6;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+input {
+  width: 320px;
+}
+
+#add-button {
+  background-color: #5b4df5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#add-button:hover {
+  background-color: #4338ca;
+}
+
+#app {
+  margin-top: 30px;
+}
+
+.task {
   background-color: white;
+  border: 1px solid #e5e7eb;
+  border-left: 6px solid #22c55e;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.task:hover {
+  transform: translateY(-2px);
 }
 
 .high-priority {
-  border-left: 6px solid red;
+  border-left-color: #ef4444;
 }
 
-button {
-  padding: 6px 10px;
+.task h3 {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.task p {
+  margin: 6px 0;
+  color: #4b5563;
+}
+
+.task button {
+  margin-top: 12px;
   margin-right: 8px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: white;
   cursor: pointer;
+  font-size: 14px;
+}
+
+.task button:first-of-type {
+  color: #4f46e5;
+  border-color: #4f46e5;
+}
+
+.task button:last-of-type {
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.task button:hover {
+  background-color: #f3f4f6;
 }

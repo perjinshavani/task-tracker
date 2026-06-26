@@ -497,12 +497,12 @@ function renderTasks() {
         notes.textContent = `Anteckningar: ${task.notes ?? "Inga anteckningar"}`;
         const completeButton = document.createElement("button");
         completeButton.textContent =
-            task.status === Status.Pending ? "Complete" : "Undo";
+            task.status === Status.Pending ? "✓ Klar" : "↩ Ångra";
         completeButton.addEventListener("click", () => {
             toggleTask(task.id);
         });
         const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
+        deleteButton.textContent = "🗑 Ta bort";
         deleteButton.addEventListener("click", () => {
             deleteTask(task.id);
         });
