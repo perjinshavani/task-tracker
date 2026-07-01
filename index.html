@@ -8,16 +8,35 @@
 <body>
     <h1>Mina uppgifter</h1>
 
+    <form id = "task-form">
+
     
-    <input id="task-input" type="text" placeholder="Skriv en uppgift">
+    <input 
+    id="task-input"
+    type="text" 
+    placeholder="Skriv en uppgift"
+    >
 
 <select id="priority-input">
-  <option value="Låg">Low</option>
-  <option value="Medium">Medium</option>
-  <option value="Hög">High</option>
+  <option value="low">Låg</option>
+  <option value="medium" selected>Medel</option>
+  <option value="high">Hög</option>
 </select>
 
-<button id="add-button">Lägga till</button>
+<button id= "add-button" type="submit">Lägga till</button>
+
+ <p id="error-message"></p>
+
+</form>
+
+<div class="filters">
+  <button id="show-all">Alla</button>
+  <button id="show-pending">Ej klara</button>
+  <button id="show-completed">Klara</button>
+</div>
+
+
+<div id="summary"></div>
 
   <div id="app"></div>
 
